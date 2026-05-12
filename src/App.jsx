@@ -2,11 +2,7 @@ import React from "react";
 import PlantPage from "./components/PlantPage";
 
 function App() {
-  return (
-    <div className="App">
-      <PlantPage />
-    </div>
-  );
+  return <PlantPage />;
 }
 
 export default App;

@@ -3,22 +3,22 @@ import React from "react";
 function PlantCard({ plant, onToggleStock }) {
   const { id, name, image, price, inStock } = plant;
 
-  function handleToggle() {
+  function handleClick() {
     onToggleStock(id);
   }
 
   return (
-    <div className="plant-card" data-testid="plant-item">
+    <li className="card" data-testid="plant-item">
       <img src={image} alt={name} />
 
-      <h2>{name}</h2>
+      <h4>{name}</h4>
 
-      <p>{price}</p>
+      <p>Price: {price}</p>
 
-      <button onClick={handleToggle}>
+      <button onClick={handleClick}>
         {inStock ? "In Stock" : "Out of Stock"}
       </button>
-    </div>
+    </li>
   );
 }
 
