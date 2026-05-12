@@ -1,12 +1,22 @@
-function PlantCard({ plant, toggleStock }) {
-  return (
-    <div>
-      <h3>{plant.name}</h3>
-      <img src={plant.image} alt={plant.name} />
-      <p>${plant.price}</p>
+import React from "react";
 
-      <button onClick={() => toggleStock(plant.id)}>
-        {plant.inStock ? "In Stock" : "Out of Stock"}
+function PlantCard({ plant, onToggleStock }) {
+  const { id, name, image, price, inStock } = plant;
+
+  function handleToggle() {
+    onToggleStock(id);
+  }
+
+  return (
+    <div className="plant-card" data-testid="plant-item">
+      <img src={image} alt={name} />
+
+      <h2>{name}</h2>
+
+      <p>{price}</p>
+
+      <button onClick={handleToggle}>
+        {inStock ? "In Stock" : "Out of Stock"}
       </button>
     </div>
   );
